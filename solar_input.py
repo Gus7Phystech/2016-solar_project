@@ -48,13 +48,13 @@ def parse_star_parameters(line, star):
     **line** — строка с описание звезды.
     **star** — объект звезды.
     """
-    S = [''] * 8
+    s = [''] * 8
     k = 0
     for i in range(len(line)):
         if (line[i]==' '):
             k += 1
         else:
-            S[k] += line[i]
+            s[k] += line[i]
     star.type = 'star'
     star.r = int(s[1])
     star.c = s[2]
@@ -81,13 +81,13 @@ def parse_planet_parameters(line, planet):
     **line** — строка с описание планеты.
     **planet** — объект планеты.
     """
-    S = [''] * 8
+    s = [''] * 8
     k = 0
     for i in range(len(line)):
         if (line[i] == ' '):
             k += 1
         else:
-            S[k] += line[i]
+            s[k] += line[i]
 
     planet.type = 'star'
     planet.r = int(s[1])
