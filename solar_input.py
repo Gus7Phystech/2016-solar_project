@@ -13,7 +13,6 @@ def read_space_objects_data_from_file(input_filename):
 
     **input_filename** — имя входного файла
     """
-    input_filename = "input.txt"
     objects = []
     with open(input_filename) as input_file:
         for line in input_file:
