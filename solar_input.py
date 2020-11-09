@@ -45,7 +45,7 @@ def int2 (s):
     str2 = '0'
     for i in range(len(s)):
         if (s[i] == 'e') or (s[i] == 'E'):
-            str1 = s[:i-1]
+            str1 = s[:i]
             str2 = s[i+1:]
     ans = float(str1)* (10 ** float(str2))
     if (ans == 0):
@@ -80,8 +80,8 @@ def parse_star_parameters(line, star):
     star.m = int2(s[3])
     star.x = int2(s[4])
     star.y = int2(s[5])
-    star.vx = int2(s[6])
-    star.vy = int2(s[7])
+    star.Vx = int2(s[6])
+    star.Vy = int2(s[7])
 
     pass  # FIXME: not done yet
 
@@ -108,14 +108,14 @@ def parse_planet_parameters(line, planet):
         else:
             s[k] += line[i]
 
-    planet.type = 'star'
+    planet.type = 'planet'
     planet.R = int2(s[1])
     planet.color = s[2]
     planet.m = int2(s[3])
     planet.x = int2(s[4])
     planet.y = int2(s[5])
-    planet.vx = int2(s[6])
-    planet.vy = int2(s[7])
+    planet.Vx = int2(s[6])
+    planet.Vy = int2(s[7])
 
     pass  # FIXME: not done yet...
 
