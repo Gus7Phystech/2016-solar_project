@@ -20,11 +20,17 @@ def read_space_objects_data_from_file(input_filename):
                 continue  # пустые строки и строки-комментарии пропускаем
             object_type = line.split()[0].lower()
             if object_type == "star":  # FIXME: do the same for planet
+
+                print(line)
+
                 star = Star()
                 parse_star_parameters(line, star)
                 objects.append(star)
             else:
                 if object_type == "planet":  # FIXME: do the same for planet
+
+                    print(line)
+
                     planet = Planet()
                     parse_planet_parameters(line, planet)
                     objects.append(planet)
@@ -33,6 +39,18 @@ def read_space_objects_data_from_file(input_filename):
 
     return objects
 
+def int2 (s):
+    str1 = '0'
+    str2 = '0'
+    for i in range(len(s)):
+        if (s[i] == 'e') or (s[i] == 'E'):
+            str1 = s[:i-1]
+            str2 = s[i+1:]
+    ans = float(str1)* (10 ** float(str2))
+    if (ans == 0):
+        ans = float(s)
+    print (ans)
+    return ans
 
 def parse_star_parameters(line, star):
     """Считывает данные о звезде из строки.
@@ -56,13 +74,13 @@ def parse_star_parameters(line, star):
         else:
             s[k] += line[i]
     star.type = 'star'
-    star.r = int(s[1])
-    star.c = s[2]
-    star.m = int(s[3])
-    star.x = int(s[4])
-    star.y = int(s[5])
-    star.vx = int(s[6])
-    star.vy = int(s[7])
+    star.R = int2(s[1])
+    star.color = s[2]
+    star.m = int2(s[3])
+    star.x = int2(s[4])
+    star.y = int2(s[5])
+    star.vx = int2(s[6])
+    star.vy = int2(s[7])
 
     pass  # FIXME: not done yet
 
@@ -90,13 +108,13 @@ def parse_planet_parameters(line, planet):
             s[k] += line[i]
 
     planet.type = 'star'
-    planet.r = int(s[1])
-    planet.c = s[2]
-    planet.m = int(s[3])
-    planet.x = int(s[4])
-    planet.y = int(s[5])
-    planet.vx = int(s[6])
-    planet.vy = int(s[7])
+    planet.R = int2(s[1])
+    planet.color = s[2]
+    planet.m = int2(s[3])
+    planet.x = int2(s[4])
+    planet.y = int2(s[5])
+    planet.vx = int2(s[6])
+    planet.vy = int2(s[7])
 
     pass  # FIXME: not done yet...
 
